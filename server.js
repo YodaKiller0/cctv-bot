@@ -137,6 +137,14 @@ app.post('/webhook', async (req, res) => {
     const value = body.entry?.[0]?.changes?.[0]?.value
     const message = value?.messages?.[0]
 
+    // ignore messages older than 30 seconds
+const msgTimestamp = message?.timestamp
+const now = Math.floor(Date.now() / 1000)
+if (msgTimestamp && (now - msgTimestamp) > 30) {
+  console.log('Ignoring old message from:', msgTimestamp)
+  return res.sendStatus(200)
+}
+
 // ignore messages sent BY the bot (outgoing messages)
 if (!message || message.type !== 'text') return res.sendStatus(200)
 
