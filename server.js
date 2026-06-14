@@ -45,7 +45,7 @@ HOW TO HELP CUSTOMERS:
 - If customer asks "camera without WiFi" → recommend 4G cameras (IMOU or Hikvision 4G range)
 - If customer asks "camera without power cable" → recommend solar/battery cameras (IMOU Cell 3C, AOV Solar)
 - If customer asks "cheap camera" → recommend IMOU Ranger 2 (Rs. 5,400) or Hikvision IR cameras
-- If customer asks "best quality" → recommend IMOU Titan Pro or Hikvision ColorVu 3.0
+- If customer asks "best qualffity" → recommend IMOU Titan Pro or Hikvision ColorVu 3.0
 - If customer wants a full package → ask how many cameras, indoor or outdoor, with DVR/NVR or cloud storage
 - If customer wants to place an order → ask for name, address, and phone number
 - When a customer asks to see a product image or photo, say "Sure! Here is the image of [product name]" — the image will be sent automatically
@@ -66,11 +66,13 @@ const chatHistory = {}
 // find matching product for image sending
 function findProduct(message) {
   const msg = message.toLowerCase()
-  return products.find(p =>
-    p.name.toLowerCase().split(' ').some(word =>
-      word.length > 3 && msg.includes(word)
-    )
-  )
+  return products.find(p => {
+    const name = p.name.toLowerCase()
+    // check if any significant part of product name is in the message
+    const words = name.split(' ').filter(w => w.length > 3)
+    const matchCount = words.filter(w => msg.includes(w)).length
+    return matchCount >= 2
+  })
 }
 
 // send text message to WhatsApp
@@ -148,6 +150,8 @@ app.post('/webhook', async (req, res) => {
     // check if customer asked about a specific product
     // check if customer asked about a specific product
 const matchedProduct = findProduct(customerMessage)
+console.log('Matched product:', matchedProduct ? matchedProduct.name : 'none')
+console.log('Image URL:', matchedProduct ? matchedProduct.image : 'none')
 
 // send image only if valid URL exists
 if (matchedProduct && 
