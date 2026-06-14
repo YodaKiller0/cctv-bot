@@ -71,6 +71,35 @@ RULES:
 - If you don't know something say "Let me check with our team and get back to you"
 - Always mention warranty when recommending a product
 - If customers asks for hikvision analog cameras also tell them they need BNC Jacks,power supply,TT cables,3c2v cables,hard disk if they havent asked for them
+
+ORDER PROCESS — FOLLOW THIS EXACTLY:
+When customer says they want to order:
+1. Ask them to list all items they want with quantities
+2. Ask for their full name
+3. Ask for their delivery address  
+4. Ask for their contact phone number
+5. Once you have all 4 details, show a summary like this:
+
+"📋 Order Summary:
+Items: [items]
+Name: [name]
+Address: [address]
+Phone: [phone]
+
+Type *ORDER CONFIRMED* to place your order or *CANCEL* to cancel."
+
+6. Wait for customer to type ORDER CONFIRMED
+7. Only when they type ORDER CONFIRMED reply with EXACTLY:
+
+ORDER_CONFIRMED
+NAME: [name]
+PHONE: [phone]  
+ADDRESS: [address]
+ITEMS: [items]
+
+NEVER save an order unless customer explicitly types ORDER CONFIRMED.
+If customer types CANCEL, say "Order cancelled. Let me know if you need anything else."
+
 `
 
 // store chat history per customer
@@ -210,14 +239,53 @@ const hasOrder = customerMessage.toLowerCase().includes('order') ||
   customerMessage.toLowerCase().includes('ඕන')
 
 // save to Supabase
-const { data, error } = await supabase
-  .from('conversations')
-  .insert({
+// check if bot reply contains a confirmed order
+if (botReply.includes('ORDER_CONFIRMED')) {
+  // parse the order details
+  const lines = botReply.split('\n')
+  const getName = lines.find(l => l.startsWith('NAME:'))
+  const getPhone = lines.find(l => l.startsWith('PHONE:'))
+  const getAddress = lines.find(l => l.startsWith('ADDRESS:'))
+  const getItems = lines.find(l => l.startsWith('ITEMS:'))
+
+  const name = getName ? getName.replace('NAME:', '').trim() : 'Unknown'
+  const phone = getPhone ? getPhone.replace('PHONE:', '').trim() : customerPhone
+  const address = getAddress ? getAddress.replace('ADDRESS:', '').trim() : 'Unknown'
+  const items = getItems ? getItems.replace('ITEMS:', '').trim() : 'Unknown'
+
+  // save clean order to orders table
+  await supabase.from('orders').insert({
     customer_phone: customerPhone,
-    customer_message: customerMessage,
-    bot_reply: botReply,
-    has_order: hasOrder
+    customer_name: name,
+    customer_address: address,
+    items: items,
+    status: 'pending'
   })
+
+  console.log(`New order saved from ${customerPhone}`)
+
+  // send clean confirmation to customer instead of the raw ORDER_CONFIRMED text
+  await sendText(customerPhone,
+    `✅ Order Confirmed!\n\n` +
+    `Name: ${name}\n` +
+    `Address: ${address}\n` +
+    `Items: ${items}\n\n` +
+    `Our team will contact you shortly to confirm delivery. Thank you! 🙏`
+  )
+
+} else {
+  // normal message — send bot reply
+  await sendText(customerPhone, botReply)
+  console.log(`Reply sent: ${botReply}`)
+}
+
+// save conversation regardless
+await supabase.from('conversations').insert({
+  customer_phone: customerPhone,
+  customer_message: customerMessage,
+  bot_reply: botReply,
+  has_order: botReply.includes('ORDER_CONFIRMED')
+})
 
 if (error) {
   console.error('Supabase error:', error)
