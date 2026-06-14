@@ -316,166 +316,152 @@ const products = [
   // ========== IMOU CAMERAS ==========
   {
     name: 'IMOU Ranger 2 Pro 3MP WiFi PT Camera',
-    price: 'Rs. 7,360',
+    price: 'Rs. 7,350',
     description: '3MP WiFi PT camera, IR remote control, two-way audio, indoor',
     category: 'imou',
-    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781428519/IMG-20260403-WA0057_t6rajw.jpg'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451812/WhatsApp_Image_2026-06-14_at_20.22.20_j1r6jf.jpg'
   },
   {
     name: 'IMOU Ranger 2 Pro 5MP WiFi PT Camera',
-    price: 'Rs. 9,476',
+    price: 'Rs. 9,500',
     description: '5MP 3K WiFi PT camera, smart tracking, human detection, two-way audio, indoor',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451898/WhatsApp_Image_2026-06-14_at_20.27.27_pnwf42.jpg'
   },
   {
     name: 'IMOU Bulb Cam 2C 3MP WiFi PT',
-    price: 'Rs. 6,815',
+    price: 'Rs. 6,850',
     description: '3MP bulb camera, fits in light socket, full color night vision, two-way audio',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451831/WhatsApp_Image_2026-06-14_at_20.26.45_ddztfq.jpg'
   },
   {
     name: 'IMOU Bulb Cam 2C 5MP WiFi PT',
-    price: 'Rs. 7,787',
+    price: 'Rs. 7,800',
     description: '5MP 3K bulb camera, full color night vision, siren & spotlight, two-way audio',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451858/WhatsApp_Image_2026-06-14_at_20.27.23_i9qnio.jpg'
   },
   {
     name: 'IMOU Bulb Cam 3MP Bulb & Camera 2-in-1',
-    price: 'Rs. 11,327',
+    price: 'Rs. 11,350',
     description: '3MP camera + LED bulb combined, 340° pan, full color, two-way audio',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451835/WhatsApp_Image_2026-06-14_at_20.27.20_ggudzq.jpg'
   },
   {
     name: 'IMOU Ranger Mini 3MP Indoor Camera',
     price: 'Rs. 7,800',
     description: '3MP 2K WiFi camera, smart tracking, human detection, two-way audio, WiFi 6',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451817/WhatsApp_Image_2026-06-14_at_20.26.29_h1xpcq.jpg'
   },
   {
     name: 'IMOU Ranger Mini 5MP Indoor Camera',
-    price: 'Rs. 9,900',
+    price: 'Rs. 9,500',
     description: '5MP 3K WiFi camera, smart tracking, human detection, two-way audio, WiFi 6',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451898/WhatsApp_Image_2026-06-14_at_20.27.27_pnwf42.jpg'
   },
   {
     name: 'IMOU Ranger Dual 3MP+3MP PT Camera',
-    price: 'Rs. 13,886',
+    price: 'Rs. 13,900',
     description: 'Dual lens PT camera, 3MP+3MP, smart tracking, active deterrence, IP67 outdoor',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451829/WhatsApp_Image_2026-06-14_at_20.26.32_o86o2k.jpg'
   },
   {
     name: 'IMOU Bullet 2E 3MP Outdoor WiFi Camera',
-    price: 'Rs. 10,304',
+    price: 'Rs. 10,350',
     description: '3MP 2K outdoor bullet, 30m night vision, IP67 weatherproof, human detection',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
-  },
-  {
-    name: 'IMOU Bullet 3 3MP Outdoor WiFi Camera',
-    price: 'Rs. 11,787',
-    description: '3MP outdoor bullet, 30m night vision, 110dB siren, spotlight, IP67',
-    category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451873/WhatsApp_Image_2026-06-14_at_20.27.30_gjohzh.jpg'
   },
   {
     name: 'IMOU Cell 3C 5MP Battery Camera',
-    price: 'Rs. 22,425',
+    price: 'Rs. 22,500',
     description: '5MP 3K battery camera, 5000mAh rechargeable, no wiring needed, WiFi',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451900/WhatsApp_Image_2026-06-14_at_20.27.21_okt9o9.jpg'
   },
   {
     name: 'IMOU Cruiser SC 3MP Outdoor PT WiFi',
     price: 'Rs. 12,944',
     description: '3MP outdoor PT camera, 30m night vision, siren, spotlight, IP67, WiFi 6',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451833/WhatsApp_Image_2026-06-14_at_20.27.17_mvbc92.jpg'
   },
   {
     name: 'IMOU Cruiser SC 5MP Outdoor PT WiFi',
-    price: 'Rs. 15,518',
+    price: 'Rs. 15,550',
     description: '5MP 3K outdoor PT camera, 30m night vision, siren, spotlight, IP67, WiFi 6',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451898/WhatsApp_Image_2026-06-14_at_20.27.33_tqhaci.jpg'
   },
   {
     name: 'IMOU Cruiser Dual 2 (3MP+3MP) Outdoor PT',
-    price: 'Rs. 18,600',
+    price: 'Rs. 18,650',
     description: 'Dual lens outdoor PT, 3MP+3MP, active deterrence, siren, IP67, WiFi 6',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451861/WhatsApp_Image_2026-06-14_at_20.27.25_exmav4.jpg'
   },
   {
     name: 'IMOU Cruiser Dual 2 (5MP+5MP) Outdoor PT',
-    price: 'Rs. 22,400',
+    price: 'Rs. 22,500',
     description: 'Dual lens outdoor PT, 5MP+5MP, active deterrence, siren, IP67, WiFi 6',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451897/WhatsApp_Image_2026-06-14_at_20.27.32_jjze8a.jpg'
   },
   {
     name: 'IMOU Cruiser Triple (3MP+3MP+5MP) Outdoor PT',
-    price: 'Rs. 27,800',
+    price: 'Rs. 27,850',
     description: 'Triple lens outdoor PT, AI vehicle & human detection, active deterrence, IP67',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781453369/WhatsApp_Image_2026-06-14_at_21.33.49_smmx58.jpg'
   },
   {
     name: 'IMOU Cruiser Z 5MP 12x Zoom WiFi Camera',
-    price: 'Rs. 28,000',
+    price: 'Rs. 39000',
     description: '5MP outdoor PT camera, 12x hybrid zoom, 56m night vision, WiFi',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
-  },
-  {
-    name: 'IMOU Titan Pro 6MP WiFi POE Camera',
-    price: 'Rs. 23,200',
-    description: '6MP aurora color night vision, 3K+, dual-band WiFi 6, 125dB siren',
-    category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781453313/WhatsApp_Image_2026-06-14_at_21.33.49_lk5rtn.jpg'
   },
 
   // ========== IMOU 4G CAMERAS ==========
   {
     name: 'IMOU Cruiser SC 4G 3MP Camera',
-    price: 'Rs. 14,200',
+    price: 'Rs. 14,250',
     description: '3MP 4G LTE camera, no WiFi needed, outdoor PT, active deterrence, IP66',
     category: 'imou-4g',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781453321/WhatsApp_Image_2026-06-14_at_21.34.00_qaqotb.jpg'
   },
   {
     name: 'IMOU Cruiser SC 4G 5MP Camera',
-    price: 'Rs. 17,950',
+    price: 'Rs. 17,980',
     description: '5MP 4G LTE camera, no WiFi needed, outdoor PT, siren, spotlight, IP66',
     category: 'imou-4g',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451870/WhatsApp_Image_2026-06-14_at_20.27.29_whgna3.jpg'
   },
   {
     name: 'IMOU Cruiser Dual 4G (3MP+3MP)',
-    price: 'Rs. 22,500',
+    price: 'Rs. 22,450',
     description: 'Dual lens 4G camera, 3MP+3MP, AI detection, active deterrence, outdoor',
     category: 'imou-4g',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781453638/WhatsApp_Image_2026-06-14_at_21.33.59_wf1gpb.jpg'
   },
   {
     name: 'IMOU AOV PT 5MP 4G Solar Camera',
-    price: 'Rs. 26,822',
+    price: 'Rs. 26,900',
     description: '5MP 4G camera with solar panel, 10000mAh battery, no wiring, outdoor',
     category: 'imou-4g',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781453659/WhatsApp_Image_2026-06-14_at_21.33.59_gv8eku.jpg'
   },
   {
     name: 'IMOU AOV Dual 5MP+5MP Solar 4G Camera',
-    price: 'Rs. 39,480',
+    price: 'Rs. 39,550',
     description: 'Dual 5MP 4G+WiFi, solar + 10000mAh battery, 24/7 recording, outdoor',
     category: 'imou-4g',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781453807/WhatsApp_Image_2026-06-14_at_21.46.11_ay30cq.jpg'
   },
 
   // ========== IMOU NVR ==========
@@ -484,14 +470,14 @@ const products = [
     price: 'Rs. 14,450',
     description: '10 channel wireless NVR, auto pairing, HDMI/VGA, supports up to 16TB HDD',
     category: 'nvr',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781453303/WhatsApp_Image_2026-06-14_at_21.33.58_fyw16e.jpg'
   },
   {
     name: 'IMOU 18 Channel Wireless NVR',
     price: 'Rs. 19,500',
     description: '18 channel wireless NVR, dual antenna, HDMI/VGA, supports up to 8TB HDD',
     category: 'nvr',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781453314/WhatsApp_Image_2026-06-14_at_21.33.59_amure4.jpg'
   },
 
   // ========== IMOU SD CARDS ==========
@@ -533,28 +519,7 @@ const products = [
     image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
   },
 
-  // ========== IMOU SMART HOME ==========
-  {
-    name: 'IMOU Smart Lock K1-G-W-EN',
-    price: 'Rs. 33,213',
-    description: 'Smart door lock, multiple unlock methods, aluminum alloy body, 2 year warranty',
-    category: 'smart-home',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
-  },
-  {
-    name: 'IMOU Dual-band Router HR12F-B',
-    price: 'Rs. 6,950',
-    description: '1200Mbps dual-band WiFi router, IMOU camera auto sync, IPTV support',
-    category: 'smart-home',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
-  },
-  {
-    name: 'IMOU Smart Bulb CL1B-5-E27',
-    price: 'Rs. 1,730',
-    description: 'Smart LED bulb, 16 million colors, voice control, dimmable, WiFi',
-    category: 'smart-home',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
-  },     
+  // ========== EZVIZ CAMERA ==========     
   {
     name: 'EZVIZ TY1 Pro 2MP Indoor Camera',
     price: 'Rs. 6,175',
@@ -563,114 +528,51 @@ const products = [
     image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448688/TY1_PRO_2MP_1_igymoc.jpg'
   },
   {
-    name: 'EZVIZ CS-H3c 2MP Black & White Outdoor',
-    price: 'Rs. 9,410',
-    description: '2MP outdoor camera, black & white, weatherproof, IR night vision',
-    category: 'ezviz',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H3c COLOR 2MP Outdoor',
-    price: 'Rs. 9,824',
-    description: '2MP outdoor camera, full color night vision, weatherproof',
-    category: 'ezviz',
-    image: null
-  },
-  {
     name: 'EZVIZ CS-H6c Pro 3MP Indoor PT Camera',
     price: 'Rs. 7,579',
     description: '3MP indoor PT camera, 360° pan, color night vision, two-way audio',
     category: 'ezviz',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448672/H6C_PRO_3MP_1_uaoss3.jpg'
   },
   {
     name: 'EZVIZ CS-H8C PRO 3MP Outdoor PT Camera',
     price: 'Rs. 12,351',
     description: '3MP outdoor PT camera, color night vision, siren, spotlight, IP67',
     category: 'ezviz',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448675/H8C_PRO_3MP_1_ryjusj.jpg'
   },
   {
     name: 'EZVIZ CS-H9c 3MP+3MP Dual Lens PT Camera',
     price: 'Rs. 18,526',
     description: 'Dual lens 3MP+3MP PT camera, panoramic view, color night vision',
     category: 'ezviz',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448675/H9C_Dual_3MP_1_bikeac.jpg'
   },
   {
     name: 'EZVIZ CS-H7c 4MP 2K+ Indoor PT Camera',
     price: 'Rs. 14,315',
     description: '4MP 2K+ indoor PT camera, color night vision, two-way audio',
     category: 'ezviz',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448665/H7C_Dual_4MP_1_lfqrd7.jpg'
   },
   {
     name: 'EZVIZ CS-H3c COLOR 4MP Outdoor Camera',
     price: 'Rs. 14,591',
     description: '4MP outdoor camera, full color night vision, weatherproof',
     category: 'ezviz',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448663/H3C_4MP_op0ao0.jpg'
   },
   {
     name: 'EZVIZ CS-H90 4MP 2K+ Outdoor PT Camera',
     price: 'Rs. 23,747',
     description: '4MP 2K+ outdoor PT camera, color night vision, AI detection, IP67',
     category: 'ezviz',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H8x 4MP 2K+ Outdoor PT Camera',
-    price: 'Rs. 23,250',
-    description: '4MP 2K+ outdoor PT camera, color night vision, siren, spotlight',
-    category: 'ezviz',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H80F 4MP 2K+ Triple Lens Camera',
-    price: 'Rs. 27,676',
-    description: '4MP 2K+ triple lens outdoor camera, wide angle coverage',
-    category: 'ezviz',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H6C Pro 5MP 3K Indoor PT Camera',
-    price: 'Rs. 10,105',
-    description: '5MP 3K indoor PT camera, color night vision, smart tracking',
-    category: 'ezviz',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H6 5MP 3K Outdoor Camera',
-    price: 'Rs. 12,250',
-    description: '5MP 3K outdoor camera, color night vision, weatherproof',
-    category: 'ezviz',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448683/H90_DUAL_4MP_1_i8vrnm.jpg'
   },
   {
     name: 'EZVIZ CS-H9c 5MP+5MP Dual Lens PT Camera',
     price: 'Rs. 22,568',
     description: 'Dual lens 5MP+5MP PT camera, panoramic view, color night vision',
-    category: 'ezviz',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H6C Pro 8MP 4K Indoor PT Camera',
-    price: 'Rs. 14,392',
-    description: '8MP 4K indoor PT camera, ultra HD, color night vision',
-    category: 'ezviz',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H8C 4K 8MP Outdoor PT Camera',
-    price: 'Rs. 19,700',
-    description: '8MP 4K outdoor PT camera, ultra HD, color night vision, IP67',
-    category: 'ezviz',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-EL3 2K+ Wall Light Camera',
-    price: 'Rs. 31,553',
-    description: '2K+ camera with built-in wall light, color night vision, two-way audio',
     category: 'ezviz',
     image: null
   },
@@ -688,144 +590,23 @@ const products = [
     price: 'Rs. 23,249',
     description: '5MP 4G camera, no WiFi needed, pan & tilt, color night vision',
     category: 'ezviz-4g',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H5 4G 3MP Camera',
-    price: 'Rs. 16,770',
-    description: '3MP 4G outdoor bullet camera, no WiFi needed, IP67 weatherproof',
-    category: 'ezviz-4g',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-CB2 4G 2K Camera',
-    price: 'Rs. 23,556',
-    description: '2K 4G cube camera, no WiFi needed, indoor/outdoor',
-    category: 'ezviz-4g',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-CB2 4G Kit 2K',
-    price: 'Rs. 28,794',
-    description: '2K 4G camera kit with accessories, complete package',
-    category: 'ezviz-4g',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-HB8 KIT 4G 3MP Battery Camera',
-    price: 'Rs. 31,999',
-    description: '3MP 4G battery camera kit, no wiring needed, rechargeable',
-    category: 'ezviz-4g',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-EB8 KIT 4G 3MP Outdoor Battery',
-    price: 'Rs. 49,819',
-    description: '3MP 4G outdoor battery camera kit, IP67, no wiring needed',
-    category: 'ezviz-4g',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448677/H9C_Dual_5MP_1_tita9j.jpg'
   },
   {
     name: 'EZVIZ HB90x Dual 4G 4MP Camera',
     price: 'Rs. 55,355',
     description: 'Dual lens 4MP 4G camera, 2K, panoramic view, rechargeable battery',
     category: 'ezviz-4g',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448690/HB90X_Dual_4G_md2nl6.jpg'
   },
 
   // ========== EZVIZ SOLAR/BATTERY ==========
-  {
-    name: 'EZVIZ EB3 4G Solar Panel Kit 2K',
-    price: 'Rs. 30,398',
-    description: '2K 4G camera with solar panel kit, no wiring or power needed',
+{
+    name: 'EZVIZ HB8 2K 3MP OUTDOOR SOLAR 4G',
+    price: 'Rs. 31,999',
+    description: '2K POE outdoor solar camera, full colour night vision, IP67 weatherproof',
     category: 'ezviz-solar',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-HB8 LITE 4MP Battery Camera',
-    price: 'Rs. 25,464',
-    description: '4MP battery camera, no wiring needed, rechargeable, outdoor',
-    category: 'ezviz-solar',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-EB5 4K Outdoor Battery Camera Black',
-    price: 'Rs. 41,366',
-    description: '4K outdoor battery camera, ultra HD, no wiring needed, black',
-    category: 'ezviz-solar',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-EB5 4K Outdoor Battery Camera White',
-    price: 'Rs. 41,366',
-    description: '4K outdoor battery camera, ultra HD, no wiring needed, white',
-    category: 'ezviz-solar',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-PBC24 Solar Panel with Battery',
-    price: 'Rs. 28,500',
-    description: 'Solar panel with battery pack accessory for EZVIZ cameras',
-    category: 'ezviz-solar',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-BM1 2MP Baby Monitor Camera',
-    price: 'Rs. 27,950',
-    description: '2MP baby monitor camera, two-way audio, night vision, temperature sensor',
-    category: 'ezviz',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-CB2 2MP Cube Camera',
-    price: 'Rs. 27,950',
-    description: '2MP cube camera, indoor/outdoor, color night vision',
-    category: 'ezviz',
-    image: null
-  },
-
-  // ========== EZVIZ POE CAMERAS ==========
-  {
-    name: 'EZVIZ CS-H8c POE 2K Outdoor Bullet',
-    price: 'Rs. 13,839',
-    description: '2K POE outdoor bullet camera, IR night vision, IP67 weatherproof',
-    category: 'ezviz-poe',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H5 POE 2K Outdoor Bullet',
-    price: 'Rs. 12,178',
-    description: '2K POE outdoor bullet camera, IR night vision, IP67 weatherproof',
-    category: 'ezviz-poe',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H4 POE 2K Dome Camera',
-    price: 'Rs. 12,455',
-    description: '2K POE dome camera, IR night vision, indoor/outdoor',
-    category: 'ezviz-poe',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H8C POE 3K 5MP Bullet Camera',
-    price: 'Rs. 15,719',
-    description: '5MP 3K POE outdoor bullet camera, color night vision, IP67',
-    category: 'ezviz-poe',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-H3C POE 5MP Outdoor PT Camera',
-    price: 'Rs. 15,598',
-    description: '5MP POE outdoor PT camera, color night vision, auto tracking',
-    category: 'ezviz-poe',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-E4p POE 6MP Fisheye Camera',
-    price: 'Rs. 32,659',
-    description: '6MP POE fisheye camera, 360° view, color night vision',
-    category: 'ezviz-poe',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448685/HB8_2K_1_wy60zh.jpg'
   },
 
   // ========== EZVIZ NVR ==========
@@ -834,14 +615,14 @@ const products = [
     price: 'Rs. 11,706',
     description: '4 channel NVR for IP cameras, remote viewing, motion detection',
     category: 'nvr',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451382/WhatsApp_Image_2026-06-14_at_21.04.57_vswnzo.jpg'
   },
   {
     name: 'EZVIZ CS-X5S 8 Channel NVR',
     price: 'Rs. 13,260',
     description: '8 channel NVR for IP cameras, remote viewing, motion detection',
     category: 'nvr',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451382/WhatsApp_Image_2026-06-14_at_21.04.57_vswnzo.jpg'
   },
 
   // ========== EZVIZ VIDEO DOOR PHONES ==========
@@ -859,34 +640,6 @@ const products = [
     category: 'door-phone',
     image: null
   },
-  {
-    name: 'EZVIZ CS-HP7 Video Door Phone 2 Cameras',
-    price: 'Rs. 73,950',
-    description: 'HP7 video door phone with 2 cameras, wider coverage, two-way audio',
-    category: 'door-phone',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-HP7 Video Door Phone 2 Displays',
-    price: 'Rs. 101,750',
-    description: 'HP7 video door phone with 2 display screens, premium package',
-    category: 'door-phone',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-EP7 Video Door Phone',
-    price: 'Rs. 63,100',
-    description: 'EP7 premium video door phone, HD camera, smart features',
-    category: 'door-phone',
-    image: null
-  },
-  {
-    name: 'EZVIZ CS-SD7 Smart Door Station',
-    price: 'Rs. 33,350',
-    description: 'SD7 smart door station, video calling, access control',
-    category: 'door-phone',
-    image: null
-  },
 
   // ========== EZVIZ DOOR LOCKS ==========
   {
@@ -897,26 +650,12 @@ const products = [
     image: null
   },
   {
-    name: 'EZVIZ CS-DL50FVS Smart Door Lock Premium',
-    price: 'Rs. 94,104',
-    description: 'DL50FVS premium smart lock, face recognition, fingerprint, password',
-    category: 'door-lock',
-    image: null
-  },
-  {
     name: 'EZVIZ CS-DL03 Smart Door Lock',
     price: 'Rs. 22,142',
     description: 'DL03 smart door lock, fingerprint + password, slim design',
     category: 'door-lock',
     image: null
   },
-  {
-    name: 'EZVIZ DLIC Smart Lock Tag',
-    price: 'Rs. 2,250',
-    description: 'IC tag for EZVIZ smart locks, additional access tag',
-    category: 'door-lock',
-    image: null
-  }
 
 ]
 
