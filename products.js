@@ -315,13 +315,6 @@ const products = [
 
   // ========== IMOU CAMERAS ==========
   {
-    name: 'IMOU Ranger 2 3MP WiFi PT Camera',
-    price: 'Rs. 5,400',
-    description: '3MP WiFi PT camera, 355° pan, night vision 10m, micro SD slot, two-way audio, indoor',
-    category: 'imou',
-    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781428519/IMG-20260403-WA0057_t6rajw.jpg'
-  },
-  {
     name: 'IMOU Ranger 2 Pro 3MP WiFi PT Camera',
     price: 'Rs. 7,360',
     description: '3MP WiFi PT camera, IR remote control, two-way audio, indoor',
@@ -561,20 +554,13 @@ const products = [
     description: 'Smart LED bulb, 16 million colors, voice control, dimmable, WiFi',
     category: 'smart-home',
     image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
-  },
-  {
-    name: 'EZVIZ CS-H1C 2MP Indoor Camera',
-    price: 'Rs. 6,643',
-    description: '2MP indoor WiFi camera, night vision, motion detection',
-    category: 'ezviz',
-    image: null
-  },
+  },     
   {
     name: 'EZVIZ TY1 Pro 2MP Indoor Camera',
     price: 'Rs. 6,175',
     description: '2MP indoor WiFi camera, pan & tilt, night vision',
     category: 'ezviz',
-    image: null
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781448688/TY1_PRO_2MP_1_igymoc.jpg'
   },
   {
     name: 'EZVIZ CS-H3c 2MP Black & White Outdoor',
