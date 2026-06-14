@@ -122,8 +122,19 @@ app.post('/webhook', async (req, res) => {
     const body = req.body
     if (body.object !== 'whatsapp_business_account') return res.sendStatus(404)
 
-    const message = body.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
-    if (!message || message.type !== 'text') return res.sendStatus(200)
+    const value = body.entry?.[0]?.changes?.[0]?.value
+    const message = value?.messages?.[0]
+
+// ignore messages sent BY the bot (outgoing messages)
+if (!message || message.type !== 'text') return res.sendStatus(200)
+
+// ignore if message is from your own bot number
+const botNumber = process.env.PHONE_NUMBER_ID
+const contacts = value?.contacts?.[0]
+if (!contacts) return res.sendStatus(200)
+
+// only process incoming messages not status updates
+if (body.entry?.[0]?.changes?.[0]?.value?.statuses) return res.sendStatus(200)
 
     const customerPhone = message.from
     const customerMessage = message.text.body
