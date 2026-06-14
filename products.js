@@ -1,4 +1,19 @@
 const products = [
+
+  //Hardware items
+
+  {
+    name: 'Siera TT cables',
+    price: 'Rs.8900',
+    description: '100m',
+    images: null
+  },
+  {
+    name: 'Red link power supply',
+    price: 'Rs.350',
+    description: '2A 5V power supply',
+    images: null
+  },
   {
     name: 'Hikvision 2MP Dome Camera',
     price: 'Rs. 4,500',
@@ -466,6 +481,375 @@ const products = [
     description: 'Smart LED bulb, 16 million colors, voice control, dimmable, WiFi',
     category: 'smart-home',
     image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+  },
+  {
+    name: 'EZVIZ CS-H1C 2MP Indoor Camera',
+    price: 'Rs. 6,643',
+    description: '2MP indoor WiFi camera, night vision, motion detection',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ TY1 Pro 2MP Indoor Camera',
+    price: 'Rs. 6,175',
+    description: '2MP indoor WiFi camera, pan & tilt, night vision',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H3c 2MP Black & White Outdoor',
+    price: 'Rs. 9,410',
+    description: '2MP outdoor camera, black & white, weatherproof, IR night vision',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H3c COLOR 2MP Outdoor',
+    price: 'Rs. 9,824',
+    description: '2MP outdoor camera, full color night vision, weatherproof',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H6c Pro 3MP Indoor PT Camera',
+    price: 'Rs. 7,579',
+    description: '3MP indoor PT camera, 360° pan, color night vision, two-way audio',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H8C PRO 3MP Outdoor PT Camera',
+    price: 'Rs. 12,351',
+    description: '3MP outdoor PT camera, color night vision, siren, spotlight, IP67',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H9c 3MP+3MP Dual Lens PT Camera',
+    price: 'Rs. 18,526',
+    description: 'Dual lens 3MP+3MP PT camera, panoramic view, color night vision',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H7c 4MP 2K+ Indoor PT Camera',
+    price: 'Rs. 14,315',
+    description: '4MP 2K+ indoor PT camera, color night vision, two-way audio',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H3c COLOR 4MP Outdoor Camera',
+    price: 'Rs. 14,591',
+    description: '4MP outdoor camera, full color night vision, weatherproof',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H90 4MP 2K+ Outdoor PT Camera',
+    price: 'Rs. 23,747',
+    description: '4MP 2K+ outdoor PT camera, color night vision, AI detection, IP67',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H8x 4MP 2K+ Outdoor PT Camera',
+    price: 'Rs. 23,250',
+    description: '4MP 2K+ outdoor PT camera, color night vision, siren, spotlight',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H80F 4MP 2K+ Triple Lens Camera',
+    price: 'Rs. 27,676',
+    description: '4MP 2K+ triple lens outdoor camera, wide angle coverage',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H6C Pro 5MP 3K Indoor PT Camera',
+    price: 'Rs. 10,105',
+    description: '5MP 3K indoor PT camera, color night vision, smart tracking',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H6 5MP 3K Outdoor Camera',
+    price: 'Rs. 12,250',
+    description: '5MP 3K outdoor camera, color night vision, weatherproof',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H9c 5MP+5MP Dual Lens PT Camera',
+    price: 'Rs. 22,568',
+    description: 'Dual lens 5MP+5MP PT camera, panoramic view, color night vision',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H6C Pro 8MP 4K Indoor PT Camera',
+    price: 'Rs. 14,392',
+    description: '8MP 4K indoor PT camera, ultra HD, color night vision',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H8C 4K 8MP Outdoor PT Camera',
+    price: 'Rs. 19,700',
+    description: '8MP 4K outdoor PT camera, ultra HD, color night vision, IP67',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-EL3 2K+ Wall Light Camera',
+    price: 'Rs. 31,553',
+    description: '2K+ camera with built-in wall light, color night vision, two-way audio',
+    category: 'ezviz',
+    image: null
+  },
+
+  // ========== EZVIZ 4G CAMERAS ==========
+  {
+    name: 'EZVIZ CS-H8c 4G 3MP Camera',
+    price: 'Rs. 14,596',
+    description: '3MP 4G camera, no WiFi needed, pan & tilt, color night vision',
+    category: 'ezviz-4g',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H9c 5MP 4G Camera',
+    price: 'Rs. 23,249',
+    description: '5MP 4G camera, no WiFi needed, pan & tilt, color night vision',
+    category: 'ezviz-4g',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H5 4G 3MP Camera',
+    price: 'Rs. 16,770',
+    description: '3MP 4G outdoor bullet camera, no WiFi needed, IP67 weatherproof',
+    category: 'ezviz-4g',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-CB2 4G 2K Camera',
+    price: 'Rs. 23,556',
+    description: '2K 4G cube camera, no WiFi needed, indoor/outdoor',
+    category: 'ezviz-4g',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-CB2 4G Kit 2K',
+    price: 'Rs. 28,794',
+    description: '2K 4G camera kit with accessories, complete package',
+    category: 'ezviz-4g',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-HB8 KIT 4G 3MP Battery Camera',
+    price: 'Rs. 31,999',
+    description: '3MP 4G battery camera kit, no wiring needed, rechargeable',
+    category: 'ezviz-4g',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-EB8 KIT 4G 3MP Outdoor Battery',
+    price: 'Rs. 49,819',
+    description: '3MP 4G outdoor battery camera kit, IP67, no wiring needed',
+    category: 'ezviz-4g',
+    image: null
+  },
+  {
+    name: 'EZVIZ HB90x Dual 4G 4MP Camera',
+    price: 'Rs. 55,355',
+    description: 'Dual lens 4MP 4G camera, 2K, panoramic view, rechargeable battery',
+    category: 'ezviz-4g',
+    image: null
+  },
+
+  // ========== EZVIZ SOLAR/BATTERY ==========
+  {
+    name: 'EZVIZ EB3 4G Solar Panel Kit 2K',
+    price: 'Rs. 30,398',
+    description: '2K 4G camera with solar panel kit, no wiring or power needed',
+    category: 'ezviz-solar',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-HB8 LITE 4MP Battery Camera',
+    price: 'Rs. 25,464',
+    description: '4MP battery camera, no wiring needed, rechargeable, outdoor',
+    category: 'ezviz-solar',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-EB5 4K Outdoor Battery Camera Black',
+    price: 'Rs. 41,366',
+    description: '4K outdoor battery camera, ultra HD, no wiring needed, black',
+    category: 'ezviz-solar',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-EB5 4K Outdoor Battery Camera White',
+    price: 'Rs. 41,366',
+    description: '4K outdoor battery camera, ultra HD, no wiring needed, white',
+    category: 'ezviz-solar',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-PBC24 Solar Panel with Battery',
+    price: 'Rs. 28,500',
+    description: 'Solar panel with battery pack accessory for EZVIZ cameras',
+    category: 'ezviz-solar',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-BM1 2MP Baby Monitor Camera',
+    price: 'Rs. 27,950',
+    description: '2MP baby monitor camera, two-way audio, night vision, temperature sensor',
+    category: 'ezviz',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-CB2 2MP Cube Camera',
+    price: 'Rs. 27,950',
+    description: '2MP cube camera, indoor/outdoor, color night vision',
+    category: 'ezviz',
+    image: null
+  },
+
+  // ========== EZVIZ POE CAMERAS ==========
+  {
+    name: 'EZVIZ CS-H8c POE 2K Outdoor Bullet',
+    price: 'Rs. 13,839',
+    description: '2K POE outdoor bullet camera, IR night vision, IP67 weatherproof',
+    category: 'ezviz-poe',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H5 POE 2K Outdoor Bullet',
+    price: 'Rs. 12,178',
+    description: '2K POE outdoor bullet camera, IR night vision, IP67 weatherproof',
+    category: 'ezviz-poe',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H4 POE 2K Dome Camera',
+    price: 'Rs. 12,455',
+    description: '2K POE dome camera, IR night vision, indoor/outdoor',
+    category: 'ezviz-poe',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H8C POE 3K 5MP Bullet Camera',
+    price: 'Rs. 15,719',
+    description: '5MP 3K POE outdoor bullet camera, color night vision, IP67',
+    category: 'ezviz-poe',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-H3C POE 5MP Outdoor PT Camera',
+    price: 'Rs. 15,598',
+    description: '5MP POE outdoor PT camera, color night vision, auto tracking',
+    category: 'ezviz-poe',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-E4p POE 6MP Fisheye Camera',
+    price: 'Rs. 32,659',
+    description: '6MP POE fisheye camera, 360° view, color night vision',
+    category: 'ezviz-poe',
+    image: null
+  },
+
+  // ========== EZVIZ NVR ==========
+  {
+    name: 'EZVIZ CS-X5S 4 Channel NVR',
+    price: 'Rs. 11,706',
+    description: '4 channel NVR for IP cameras, remote viewing, motion detection',
+    category: 'nvr',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-X5S 8 Channel NVR',
+    price: 'Rs. 13,260',
+    description: '8 channel NVR for IP cameras, remote viewing, motion detection',
+    category: 'nvr',
+    image: null
+  },
+
+  // ========== EZVIZ VIDEO DOOR PHONES ==========
+  {
+    name: 'EZVIZ CS-HP7 Video Door Phone',
+    price: 'Rs. 40,570',
+    description: 'HP7 video door phone, HD camera, two-way audio, night vision',
+    category: 'door-phone',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-HP5 Video Door Phone',
+    price: 'Rs. 38,034',
+    description: 'HP5 video door phone, HD camera, two-way audio, night vision',
+    category: 'door-phone',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-HP7 Video Door Phone 2 Cameras',
+    price: 'Rs. 73,950',
+    description: 'HP7 video door phone with 2 cameras, wider coverage, two-way audio',
+    category: 'door-phone',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-HP7 Video Door Phone 2 Displays',
+    price: 'Rs. 101,750',
+    description: 'HP7 video door phone with 2 display screens, premium package',
+    category: 'door-phone',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-EP7 Video Door Phone',
+    price: 'Rs. 63,100',
+    description: 'EP7 premium video door phone, HD camera, smart features',
+    category: 'door-phone',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-SD7 Smart Door Station',
+    price: 'Rs. 33,350',
+    description: 'SD7 smart door station, video calling, access control',
+    category: 'door-phone',
+    image: null
+  },
+
+  // ========== EZVIZ DOOR LOCKS ==========
+  {
+    name: 'EZVIZ CS-DL05 Smart Door Lock',
+    price: 'Rs. 33,213',
+    description: 'DL05 smart door lock, fingerprint + password + card, 2 year warranty',
+    category: 'door-lock',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-DL50FVS Smart Door Lock Premium',
+    price: 'Rs. 94,104',
+    description: 'DL50FVS premium smart lock, face recognition, fingerprint, password',
+    category: 'door-lock',
+    image: null
+  },
+  {
+    name: 'EZVIZ CS-DL03 Smart Door Lock',
+    price: 'Rs. 22,142',
+    description: 'DL03 smart door lock, fingerprint + password, slim design',
+    category: 'door-lock',
+    image: null
+  },
+  {
+    name: 'EZVIZ DLIC Smart Lock Tag',
+    price: 'Rs. 2,250',
+    description: 'IC tag for EZVIZ smart locks, additional access tag',
+    category: 'door-lock',
+    image: null
   }
 
 ]

@@ -26,8 +26,19 @@ Reply in the same language the customer uses — Sinhala or English.
 Keep replies short and clear — this is WhatsApp not email.
 
 BRANDS WE SELL:
-- Hikvision (HD analog cameras, DVRs, IP cameras, NVRs)
-- IMOU (WiFi cameras, 4G cameras, solar cameras, smart home)
+- IMOU (WiFi cameras, 4G cameras, solar cameras, NVRs, smart home)
+- EZVIZ (WiFi cameras, 4G cameras, POE cameras, battery cameras, video door phones, smart locks)
+- Hikvision (available on request)
+
+HOW TO RECOMMEND BY CUSTOMER NEED:
+- No WiFi location → recommend 4G cameras (IMOU or EZVIZ 4G range)
+- No power cable → recommend solar/battery cameras (IMOU Cell 3C, AOV Solar, EZVIZ EB3, HB8)
+- Indoor home camera → recommend IMOU Ranger Mini, EZVIZ H1C or H6c Pro
+- Outdoor camera → recommend IMOU Cruiser SC or EZVIZ H3c/H8C PRO
+- Best quality outdoor → recommend IMOU Cruiser Triple or EZVIZ H90
+- Budget camera → IMOU Ranger 2 (Rs. 5,400) or EZVIZ TY1 Pro (Rs. 6,175)
+- Door security → EZVIZ video door phones or smart locks
+- Full home security → recommend complete package with NVR
 
 ALL PRODUCTS AND PRICES (DPP):
 ${productList}
@@ -35,8 +46,8 @@ ${productList}
 SERVICES:
 - Installation available in and around Colombo
 - Free site visit for large orders
-- 1 year warranty on Hikvision products
-- 2 year warranty on IMOU products (from activation date)
+- 2 year warranty on Hikvision products
+- 3 year warranty on IMOU products (from activation date)
 - Island wide delivery available
 - Remote viewing setup included
 
@@ -51,6 +62,7 @@ HOW TO HELP CUSTOMERS:
 - When a customer asks to see a product image or photo, say "Sure! Here is the image of [product name]" — the image will be sent automatically
 - You CAN share product images — never say you cannot share images
 - If asked for a photo or image, confirm you are sending it
+- If customers are asking for wifi or 4G cameras, always ask if they need SD cards, power supply,TT cables
 
 RULES:
 - Only use prices from the product list above
@@ -158,7 +170,6 @@ if (body.entry?.[0]?.changes?.[0]?.value?.statuses) return res.sendStatus(200)
     const botReply = response.content[0].text
     chatHistory[customerPhone].push({ role: 'assistant', content: botReply })
 
-    // check if customer asked about a specific product
     // check if customer asked about a specific product
 const matchedProduct = findProduct(customerMessage)
 console.log('Matched product:', matchedProduct ? matchedProduct.name : 'none')
