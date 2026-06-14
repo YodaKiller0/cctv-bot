@@ -8,14 +8,9 @@ const app = express()
 app.use(express.json())
 
 const claude = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
-
 const { createClient } = require('@supabase/supabase-js')
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_KEY
-)
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
 
-// build product list text for Claude to read
 const productList = products.map(p =>
   `- ${p.name} (${p.category}): ${p.price} — ${p.description}`
 ).join('\n')
@@ -46,23 +41,10 @@ ${productList}
 SERVICES:
 - Installation available in and around Colombo
 - Free site visit for large orders
-- 2 year warranty on Hikvision products
-- 3 year warranty on IMOU products (from activation date)
+- 2 year warranty on EZVIZ products
+- 2 year warranty on IMOU products (from activation date)
 - Island wide delivery available
 - Remote viewing setup included
-
-HOW TO HELP CUSTOMERS:
-- If customer asks "best camera for outdoor" → recommend IMOU Cruiser SC or Hikvision Dual-light
-- If customer asks "camera without WiFi" → recommend 4G cameras (IMOU or Hikvision 4G range)
-- If customer asks "camera without power cable" → recommend solar/battery cameras (IMOU Cell 3C, AOV Solar)
-- If customer asks "cheap camera" → recommend IMOU Ranger 2 (Rs. 5,400) or Hikvision IR cameras
-- If customer asks "best qualffity" → recommend IMOU Titan Pro or Hikvision ColorVu 3.0
-- If customer wants a full package → ask how many cameras, indoor or outdoor, with DVR/NVR or cloud storage
-- If customer wants to place an order → ask for name, address, and phone number
-- When a customer asks to see a product image or photo, say "Sure! Here is the image of [product name]" — the image will be sent automatically
-- You CAN share product images — never say you cannot share images
-- If asked for a photo or image, confirm you are sending it
-- If customers are asking for wifi or 4G cameras, always ask if they need SD cards, power supply,TT cables
 
 RULES:
 - Only use prices from the product list above
@@ -70,13 +52,16 @@ RULES:
 - If asked about installation cost, say "depends on location and number of cameras, we will visit and quote"
 - If you don't know something say "Let me check with our team and get back to you"
 - Always mention warranty when recommending a product
-- If customers asks for hikvision analog cameras also tell them they need BNC Jacks,power supply,TT cables,3c2v cables,hard disk if they havent asked for them
+- If customers ask for WiFi or 4G cameras, always ask if they need SD cards, power supply, TT cables
+- If customers ask for Hikvision analog cameras, tell them they also need BNC Jacks, power supply, TT cables, 3c2v cables, hard disk
+- You CAN share product images — never say you cannot share images
+- When a customer asks to see a product image or photo, say "Sure! Here is the image of [product name]" — the image will be sent automatically
 
 ORDER PROCESS — FOLLOW THIS EXACTLY:
 When customer says they want to order:
 1. Ask them to list all items they want with quantities
 2. Ask for their full name
-3. Ask for their delivery address  
+3. Ask for their delivery address
 4. Ask for their contact phone number
 5. Once you have all 4 details, show a summary like this:
 
@@ -86,38 +71,33 @@ Name: [name]
 Address: [address]
 Phone: [phone]
 
-Type *ORDER CONFIRMED* to place your order or *CANCEL* to cancel."
+Type ORDER CONFIRMED to place your order or CANCEL to cancel."
 
 6. Wait for customer to type ORDER CONFIRMED
-7. Only when they type ORDER CONFIRMED reply with EXACTLY:
+7. Only when they type ORDER CONFIRMED — reply with EXACTLY this and nothing else:
 
 ORDER_CONFIRMED
 NAME: [name]
-PHONE: [phone]  
+PHONE: [phone]
 ADDRESS: [address]
 ITEMS: [items]
 
-NEVER save an order unless customer explicitly types ORDER CONFIRMED.
+NEVER include ORDER_CONFIRMED in your reply unless the customer explicitly typed "ORDER CONFIRMED".
 If customer types CANCEL, say "Order cancelled. Let me know if you need anything else."
-
 `
 
-// store chat history per customer
 const chatHistory = {}
 
-// find matching product for image sending
 function findProduct(message) {
   const msg = message.toLowerCase()
   return products.find(p => {
     const name = p.name.toLowerCase()
-    // check if any significant part of product name is in the message
     const words = name.split(' ').filter(w => w.length > 3)
     const matchCount = words.filter(w => msg.includes(w)).length
     return matchCount >= 2
   })
 }
 
-// send text message to WhatsApp
 async function sendText(to, text) {
   await axios.post(
     `https://graph.facebook.com/v18.0/${process.env.PHONE_NUMBER_ID}/messages`,
@@ -136,7 +116,6 @@ async function sendText(to, text) {
   )
 }
 
-// send product image with caption to WhatsApp
 async function sendImage(to, imageUrl, caption) {
   await axios.post(
     `https://graph.facebook.com/v18.0/${process.env.PHONE_NUMBER_ID}/messages`,
@@ -144,10 +123,7 @@ async function sendImage(to, imageUrl, caption) {
       messaging_product: 'whatsapp',
       to,
       type: 'image',
-      image: {
-        link: imageUrl,
-        caption: caption
-      }
+      image: { link: imageUrl, caption: caption }
     },
     {
       headers: {
@@ -158,33 +134,29 @@ async function sendImage(to, imageUrl, caption) {
   )
 }
 
-// receive messages from WhatsApp
 app.post('/webhook', async (req, res) => {
+  // respond immediately to prevent WhatsApp retries
+  res.sendStatus(200)
+
   try {
     const body = req.body
-    if (body.object !== 'whatsapp_business_account') return res.sendStatus(404)
+    if (body.object !== 'whatsapp_business_account') return
 
     const value = body.entry?.[0]?.changes?.[0]?.value
+
+    // ignore status updates
+    if (value?.statuses) return
+
     const message = value?.messages?.[0]
+    if (!message || message.type !== 'text') return
 
     // ignore messages older than 30 seconds
-const msgTimestamp = message?.timestamp
-const now = Math.floor(Date.now() / 1000)
-if (msgTimestamp && (now - msgTimestamp) > 30) {
-  console.log('Ignoring old message from:', msgTimestamp)
-  return res.sendStatus(200)
-}
-
-// ignore messages sent BY the bot (outgoing messages)
-if (!message || message.type !== 'text') return res.sendStatus(200)
-
-// ignore if message is from your own bot number
-const botNumber = process.env.PHONE_NUMBER_ID
-const contacts = value?.contacts?.[0]
-if (!contacts) return res.sendStatus(200)
-
-// only process incoming messages not status updates
-if (body.entry?.[0]?.changes?.[0]?.value?.statuses) return res.sendStatus(200)
+    const msgTimestamp = parseInt(message.timestamp)
+    const now = Math.floor(Date.now() / 1000)
+    if ((now - msgTimestamp) > 30) {
+      console.log('Ignoring old message, age:', now - msgTimestamp, 'seconds')
+      return
+    }
 
     const customerPhone = message.from
     const customerMessage = message.text.body
@@ -208,108 +180,69 @@ if (body.entry?.[0]?.changes?.[0]?.value?.statuses) return res.sendStatus(200)
     const botReply = response.content[0].text
     chatHistory[customerPhone].push({ role: 'assistant', content: botReply })
 
-    // check if customer asked about a specific product
-const matchedProduct = findProduct(customerMessage)
-console.log('Matched product:', matchedProduct ? matchedProduct.name : 'none')
-console.log('Image URL:', matchedProduct ? matchedProduct.image : 'none')
+    console.log(`Bot reply: ${botReply}`)
 
-// send image only if valid URL exists
-if (matchedProduct && 
-    matchedProduct.image && 
-    matchedProduct.image.startsWith('https://')) {
-  await sendImage(
-    customerPhone,
-    matchedProduct.image,
-    `${matchedProduct.name} — ${matchedProduct.price}`
-  )
-}
+    // check if this is a confirmed order
+    if (botReply.includes('ORDER_CONFIRMED')) {
+      const lines = botReply.split('\n')
+      const getName = lines.find(l => l.startsWith('NAME:'))
+      const getPhone = lines.find(l => l.startsWith('PHONE:'))
+      const getAddress = lines.find(l => l.startsWith('ADDRESS:'))
+      const getItems = lines.find(l => l.startsWith('ITEMS:'))
 
-    // always send the text reply
-    // always send the text reply
-await sendText(customerPhone, botReply)
-console.log(`Reply sent: ${botReply}`)
+      const name = getName ? getName.replace('NAME:', '').trim() : 'Unknown'
+      const phone = getPhone ? getPhone.replace('PHONE:', '').trim() : customerPhone
+      const address = getAddress ? getAddress.replace('ADDRESS:', '').trim() : 'Unknown'
+      const items = getItems ? getItems.replace('ITEMS:', '').trim() : 'Unknown'
 
-// check if message contains order intent
-const hasOrder = customerMessage.toLowerCase().includes('order') ||
-  customerMessage.toLowerCase().includes('buy') ||
-  customerMessage.toLowerCase().includes('want') ||
-  customerMessage.toLowerCase().includes('delivery') ||
-  customerMessage.toLowerCase().includes('address') ||
-  customerMessage.toLowerCase().includes('ගන්න') ||
-  customerMessage.toLowerCase().includes('ඕන')
+      // save order to Supabase
+      await supabase.from('orders').insert({
+        customer_phone: customerPhone,
+        customer_name: name,
+        customer_address: address,
+        items: items,
+        status: 'pending'
+      })
 
-// save to Supabase
-// check if bot reply contains a confirmed order
-if (botReply.includes('ORDER_CONFIRMED')) {
-  // parse the order details
-  const lines = botReply.split('\n')
-  const getName = lines.find(l => l.startsWith('NAME:'))
-  const getPhone = lines.find(l => l.startsWith('PHONE:'))
-  const getAddress = lines.find(l => l.startsWith('ADDRESS:'))
-  const getItems = lines.find(l => l.startsWith('ITEMS:'))
+      console.log(`New order saved from ${customerPhone}`)
 
-  const name = getName ? getName.replace('NAME:', '').trim() : 'Unknown'
-  const phone = getPhone ? getPhone.replace('PHONE:', '').trim() : customerPhone
-  const address = getAddress ? getAddress.replace('ADDRESS:', '').trim() : 'Unknown'
-  const items = getItems ? getItems.replace('ITEMS:', '').trim() : 'Unknown'
+      // send confirmation to customer
+      await sendText(customerPhone,
+        `✅ Order Confirmed!\n\n` +
+        `Name: ${name}\n` +
+        `Address: ${address}\n` +
+        `Items: ${items}\n\n` +
+        `Our team will contact you shortly to confirm delivery. Thank you! 🙏`
+      )
 
-  // save clean order to orders table
-  await supabase.from('orders').insert({
-    customer_phone: customerPhone,
-    customer_name: name,
-    customer_address: address,
-    items: items,
-    status: 'pending'
-  })
+    } else {
+      // send product image if matched
+      const matchedProduct = findProduct(customerMessage)
+      if (matchedProduct && matchedProduct.image && matchedProduct.image.startsWith('https://')) {
+        await sendImage(
+          customerPhone,
+          matchedProduct.image,
+          `${matchedProduct.name} — ${matchedProduct.price}`
+        )
+      }
 
-  console.log(`New order saved from ${customerPhone}`)
+      // send normal bot reply
+      await sendText(customerPhone, botReply)
+    }
 
-  // send clean confirmation to customer instead of the raw ORDER_CONFIRMED text
-  await sendText(customerPhone,
-    `✅ Order Confirmed!\n\n` +
-    `Name: ${name}\n` +
-    `Address: ${address}\n` +
-    `Items: ${items}\n\n` +
-    `Our team will contact you shortly to confirm delivery. Thank you! 🙏`
-  )
-
-} else {
-  // normal message — send bot reply
-  await sendText(customerPhone, botReply)
-  console.log(`Reply sent: ${botReply}`)
-}
-
-// save conversation regardless
-await supabase.from('conversations').insert({
-  customer_phone: customerPhone,
-  customer_message: customerMessage,
-  bot_reply: botReply,
-  has_order: botReply.includes('ORDER_CONFIRMED')
-})
-
-if (error) {
-  console.error('Supabase error:', error)
-} else {
-  console.log('Saved to Supabase:', data)
-}
-
-res.sendStatus(200)
+    // save conversation to Supabase
+    await supabase.from('conversations').insert({
+      customer_phone: customerPhone,
+      customer_message: customerMessage,
+      bot_reply: botReply,
+      has_order: botReply.includes('ORDER_CONFIRMED')
+    })
 
   } catch (error) {
-  console.error('FULL ERROR:')
-
-  if (error.response) {
-    console.error('Status:', error.response.status)
-    console.error('Data:', error.response.data)
-  } else {
-    console.error(error)
+    console.error('Error:', error.response ? error.response.data : error.message)
   }
-
-  res.sendStatus(500)
-}
 })
 
-// verify webhook with Meta.
 app.get('/webhook', (req, res) => {
   const mode = req.query['hub.mode']
   const token = req.query['hub.verify_token']
@@ -327,11 +260,8 @@ app.get('/', (req, res) => {
   res.json({ message: 'CCTV Bot running' })
 })
 
-
-// test route — remove this before going live
 app.post('/test', async (req, res) => {
   const { message } = req.body
-
   if (!chatHistory['test']) chatHistory['test'] = []
   chatHistory['test'].push({ role: 'user', content: message })
 
@@ -344,10 +274,8 @@ app.post('/test', async (req, res) => {
 
   const botReply = response.content[0].text
   chatHistory['test'].push({ role: 'assistant', content: botReply })
-
   res.json({ reply: botReply })
 })
-
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('Server running on port ' + (process.env.PORT || 3000))
