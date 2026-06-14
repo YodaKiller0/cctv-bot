@@ -231,12 +231,19 @@ app.post('/webhook', async (req, res) => {
     }
 
     // save conversation to Supabase
-    await supabase.from('conversations').insert({
-      customer_phone: customerPhone,
-      customer_message: customerMessage,
-      bot_reply: botReply,
-      has_order: botReply.includes('ORDER_CONFIRMED')
-    })
+    // save conversation to Supabase
+const { error: convError } = await supabase.from('conversations').insert({
+  customer_phone: customerPhone,
+  customer_message: customerMessage,
+  bot_reply: botReply,
+  has_order: botReply.includes('ORDER_CONFIRMED')
+})
+
+if (convError) {
+  console.error('Supabase conversation save error:', convError.message)
+} else {
+  console.log('Conversation saved to Supabase')
+}
 
   } catch (error) {
     console.error('Error:', error.response ? error.response.data : error.message)
