@@ -97,16 +97,30 @@ function findProduct(message) {
   
   products.forEach(p => {
     const name = p.name.toLowerCase()
-    const words = name.split(' ').filter(w => w.length > 2)
-    const matchCount = words.filter(w => msg.includes(w)).length
-    const score = matchCount / words.length
+    let score = 0
     
-    if (matchCount >= 1 && score > bestScore) {
+    // check if product name words appear in message
+    const nameWords = name.split(' ').filter(w => w.length > 1)
+    const nameMatches = nameWords.filter(w => msg.includes(w)).length
+    score += nameMatches * 2
+    
+    // check if message words appear in product name
+    const msgWords = msg.split(' ').filter(w => w.length > 1)
+    const msgMatches = msgWords.filter(w => name.includes(w)).length
+    score += msgMatches
+    
+    // bonus if brand name matches
+    if (msg.includes('imou') && name.includes('imou')) score += 3
+    if (msg.includes('ezviz') && name.includes('ezviz')) score += 3
+    if (msg.includes('hikvision') && name.includes('hikvision')) score += 3
+    
+    if (score > bestScore && score >= 2) {
       bestScore = score
       best = p
     }
   })
   
+  console.log('Best match:', best ? best.name : 'NONE', 'Score:', bestScore)
   return best
 }
 
