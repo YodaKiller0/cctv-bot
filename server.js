@@ -149,7 +149,7 @@ const matchedProduct = findProduct(customerMessage)
 // send image only if valid URL exists
 if (matchedProduct && 
     matchedProduct.image && 
-    matchedProduct.image.startsWith('https://i.imgur.com')) {
+    matchedProduct.image.startsWith('https://')) {
   await sendImage(
     customerPhone,
     matchedProduct.image,

@@ -231,7 +231,7 @@ const products = [
     price: 'Rs. 7,360',
     description: '3MP WiFi PT camera, IR remote control, two-way audio, indoor',
     category: 'imou',
-    image: 'https://i.imgur.com/GgP9mM6.jpeg'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781428519/IMG-20260403-WA0057_t6rajw.jpg'
   },
   {
     name: 'IMOU Ranger 2 Pro 5MP WiFi PT Camera',
