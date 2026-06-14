@@ -56,6 +56,7 @@ RULES:
 - If customers ask for Hikvision analog cameras, tell them they also need BNC Jacks, power supply, TT cables, 3c2v cables, hard disk
 - You CAN share product images — never say you cannot share images
 - When a customer asks to see a product image or photo, say "Sure! Here is the image of [product name]" — the image will be sent automatically
+- NEVER say "the image will appear shortly" — just say "Here is the image of [product name]"
 
 ORDER PROCESS — FOLLOW THIS EXACTLY:
 When customer says they want to order:
@@ -215,12 +216,24 @@ app.post('/webhook', async (req, res) => {
 
     } else {
       const matchedProduct = findProduct(customerMessage)
+      console.log('Customer message:', customerMessage)
+      console.log('Matched product:', matchedProduct ? matchedProduct.name : 'NONE')
+      console.log('Image URL:', matchedProduct ? matchedProduct.image : 'NONE')
+      
       if (matchedProduct && matchedProduct.image && matchedProduct.image.startsWith('https://')) {
-        await sendImage(
-          customerPhone,
-          matchedProduct.image,
-          `${matchedProduct.name} — ${matchedProduct.price}`
-        )
+        console.log('Sending image...')
+        try {
+          await sendImage(
+            customerPhone,
+            matchedProduct.image,
+            `${matchedProduct.name} — ${matchedProduct.price}`
+          )
+          console.log('Image sent successfully')
+        } catch (imgError) {
+          console.error('Image send error:', imgError.response ? imgError.response.data : imgError.message)
+        }
+      } else {
+        console.log('No image to send — either no match or no image URL')
       }
 
       await sendText(customerPhone, botReply)
