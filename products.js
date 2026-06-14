@@ -615,7 +615,7 @@ const products = [
     price: 'Rs. 11,706',
     description: '4 channel NVR for IP cameras, remote viewing, motion detection',
     category: 'nvr',
-    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451382/WhatsApp_Image_2026-06-14_at_21.04.57_vswnzo.jpg'
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781451377/WhatsApp_Image_2026-06-14_at_21.04.51_zbhv9k.jpg'
   },
   {
     name: 'EZVIZ CS-X5S 8 Channel NVR',

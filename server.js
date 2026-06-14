@@ -41,8 +41,9 @@ ${productList}
 SERVICES:
 - Installation available in and around Colombo
 - Free site visit for large orders
+- 2 year warranty on all Hikvision products
 - 2 year warranty on EZVIZ products
-- 2 year warranty on IMOU products (from activation date)
+- 3 year warranty on IMOU products (from activation date)
 - Island wide delivery available
 - Remote viewing setup included
 
