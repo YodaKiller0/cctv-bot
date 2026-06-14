@@ -187,9 +187,17 @@ if (error) {
 res.sendStatus(200)
 
   } catch (error) {
-    console.error('Error:', error.message)
-    res.sendStatus(500)
+  console.error('FULL ERROR:')
+
+  if (error.response) {
+    console.error('Status:', error.response.status)
+    console.error('Data:', error.response.data)
+  } else {
+    console.error(error)
   }
+
+  res.sendStatus(500)
+}
 })
 
 // verify webhook with Meta.
