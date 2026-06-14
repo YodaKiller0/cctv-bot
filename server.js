@@ -9,6 +9,12 @@ app.use(express.json())
 
 const claude = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
+const { createClient } = require('@supabase/supabase-js')
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
+)
+
 // build product list text for Claude to read
 const productList = products.map(p =>
   `- ${p.name} (${p.category}): ${p.price} — ${p.description}`
@@ -149,9 +155,28 @@ app.post('/webhook', async (req, res) => {
     }
 
     // always send the text reply
-    await sendText(customerPhone, botReply)
-    console.log(`Reply sent: ${botReply}`)
-    res.sendStatus(200)
+    // always send the text reply
+await sendText(customerPhone, botReply)
+console.log(`Reply sent: ${botReply}`)
+
+// check if message contains order intent
+const hasOrder = customerMessage.toLowerCase().includes('order') ||
+  customerMessage.toLowerCase().includes('buy') ||
+  customerMessage.toLowerCase().includes('want') ||
+  customerMessage.toLowerCase().includes('delivery') ||
+  customerMessage.toLowerCase().includes('address') ||
+  customerMessage.toLowerCase().includes('ගන්න') ||
+  customerMessage.toLowerCase().includes('ඕන')
+
+// save to Supabase
+await supabase.from('conversations').insert({
+  customer_phone: customerPhone,
+  customer_message: customerMessage,
+  bot_reply: botReply,
+  has_order: hasOrder
+})
+
+res.sendStatus(200)
 
   } catch (error) {
     console.error('Error:', error.message)
