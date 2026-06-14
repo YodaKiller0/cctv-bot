@@ -65,16 +65,16 @@ When customer says they want to order:
 4. Ask for their contact phone number
 5. Once you have all 4 details, show a summary like this:
 
-"📋 Order Summary:
+📋 Order Summary:
 Items: [items]
 Name: [name]
 Address: [address]
 Phone: [phone]
 
-Type ORDER CONFIRMED to place your order or CANCEL to cancel."
+Type ORDER CONFIRMED to place your order or CANCEL to cancel.
 
 6. Wait for customer to type ORDER CONFIRMED
-7. Only when they type ORDER CONFIRMED — reply with EXACTLY this and nothing else:
+7. Only when they type ORDER CONFIRMED — reply with EXACTLY this and nothing else, no extra text:
 
 ORDER_CONFIRMED
 NAME: [name]
@@ -82,8 +82,8 @@ PHONE: [phone]
 ADDRESS: [address]
 ITEMS: [items]
 
-NEVER include ORDER_CONFIRMED in your reply unless the customer explicitly typed "ORDER CONFIRMED".
-If customer types CANCEL, say "Order cancelled. Let me know if you need anything else."
+NEVER include ORDER_CONFIRMED in your reply unless the customer explicitly typed ORDER CONFIRMED.
+If customer types CANCEL, say Order cancelled. Let me know if you need anything else.
 `
 
 const chatHistory = {}
@@ -135,7 +135,6 @@ async function sendImage(to, imageUrl, caption) {
 }
 
 app.post('/webhook', async (req, res) => {
-  // respond immediately to prevent WhatsApp retries
   res.sendStatus(200)
 
   try {
@@ -144,13 +143,11 @@ app.post('/webhook', async (req, res) => {
 
     const value = body.entry?.[0]?.changes?.[0]?.value
 
-    // ignore status updates
     if (value?.statuses) return
 
     const message = value?.messages?.[0]
     if (!message || message.type !== 'text') return
 
-    // ignore messages older than 30 seconds
     const msgTimestamp = parseInt(message.timestamp)
     const now = Math.floor(Date.now() / 1000)
     if ((now - msgTimestamp) > 30) {
@@ -162,14 +159,12 @@ app.post('/webhook', async (req, res) => {
     const customerMessage = message.text.body
     console.log(`From ${customerPhone}: ${customerMessage}`)
 
-    // set up chat history
     if (!chatHistory[customerPhone]) chatHistory[customerPhone] = []
     chatHistory[customerPhone].push({ role: 'user', content: customerMessage })
     if (chatHistory[customerPhone].length > 10) {
       chatHistory[customerPhone] = chatHistory[customerPhone].slice(-10)
     }
 
-    // get Claude's reply
     const response = await claude.messages.create({
       model: 'claude-sonnet-4-6',
       max_tokens: 500,
@@ -179,24 +174,24 @@ app.post('/webhook', async (req, res) => {
 
     const botReply = response.content[0].text
     chatHistory[customerPhone].push({ role: 'assistant', content: botReply })
-
     console.log(`Bot reply: ${botReply}`)
 
-    // check if this is a confirmed order
     if (botReply.includes('ORDER_CONFIRMED')) {
-      const lines = botReply.split('\n')
-      const getName = lines.find(l => l.startsWith('NAME:'))
-      const getPhone = lines.find(l => l.startsWith('PHONE:'))
-      const getAddress = lines.find(l => l.startsWith('ADDRESS:'))
-      const getItems = lines.find(l => l.startsWith('ITEMS:'))
+      // flexible parser
+      const extractField = (text, field) => {
+        const regex = new RegExp(field + ':?\\s*([^\\n]+)', 'i')
+        const match = text.match(regex)
+        return match ? match[1].trim() : 'Unknown'
+      }
 
-      const name = getName ? getName.replace('NAME:', '').trim() : 'Unknown'
-      const phone = getPhone ? getPhone.replace('PHONE:', '').trim() : customerPhone
-      const address = getAddress ? getAddress.replace('ADDRESS:', '').trim() : 'Unknown'
-      const items = getItems ? getItems.replace('ITEMS:', '').trim() : 'Unknown'
+      const name = extractField(botReply, 'NAME')
+      const phone = extractField(botReply, 'PHONE')
+      const address = extractField(botReply, 'ADDRESS')
+      const items = extractField(botReply, 'ITEMS')
 
-      // save order to Supabase
-      await supabase.from('orders').insert({
+      console.log('Order - Name:', name, 'Phone:', phone, 'Address:', address, 'Items:', items)
+
+      const { error: orderError } = await supabase.from('orders').insert({
         customer_phone: customerPhone,
         customer_name: name,
         customer_address: address,
@@ -204,9 +199,12 @@ app.post('/webhook', async (req, res) => {
         status: 'pending'
       })
 
-      console.log(`New order saved from ${customerPhone}`)
+      if (orderError) {
+        console.error('Order save error:', orderError.message)
+      } else {
+        console.log('Order saved to Supabase')
+      }
 
-      // send confirmation to customer
       await sendText(customerPhone,
         `✅ Order Confirmed!\n\n` +
         `Name: ${name}\n` +
@@ -216,7 +214,6 @@ app.post('/webhook', async (req, res) => {
       )
 
     } else {
-      // send product image if matched
       const matchedProduct = findProduct(customerMessage)
       if (matchedProduct && matchedProduct.image && matchedProduct.image.startsWith('https://')) {
         await sendImage(
@@ -226,24 +223,21 @@ app.post('/webhook', async (req, res) => {
         )
       }
 
-      // send normal bot reply
       await sendText(customerPhone, botReply)
     }
 
-    // save conversation to Supabase
-    // save conversation to Supabase
-const { error: convError } = await supabase.from('conversations').insert({
-  customer_phone: customerPhone,
-  customer_message: customerMessage,
-  bot_reply: botReply,
-  has_order: botReply.includes('ORDER_CONFIRMED')
-})
+    const { error: convError } = await supabase.from('conversations').insert({
+      customer_phone: customerPhone,
+      customer_message: customerMessage,
+      bot_reply: botReply,
+      has_order: botReply.includes('ORDER_CONFIRMED')
+    })
 
-if (convError) {
-  console.error('Supabase conversation save error:', convError.message)
-} else {
-  console.log('Conversation saved to Supabase')
-}
+    if (convError) {
+      console.error('Conversation save error:', convError.message)
+    } else {
+      console.log('Conversation saved')
+    }
 
   } catch (error) {
     console.error('Error:', error.response ? error.response.data : error.message)
