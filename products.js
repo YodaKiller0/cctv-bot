@@ -424,21 +424,21 @@ const products = [
   // ========== IMOU SD CARDS ==========
   {
     name: 'IMOU 64GB Micro SD Card',
-    price: 'Rs. 4,000',
+    price: 'Rs. 3900',
     description: 'Micro SD card designed for security cameras, 64GB',
     category: 'accessories',
     image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
   },
   {
     name: 'IMOU 128GB Micro SD Card',
-    price: 'Rs. 7,000',
+    price: 'Rs. 6900',
     description: 'Micro SD card designed for security cameras, 128GB',
     category: 'accessories',
     image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
   },
   {
     name: 'IMOU 256GB Micro SD Card',
-    price: 'Rs. 9,500',
+    price: 'Rs. 11500',
     description: 'Micro SD card designed for security cameras, 256GB',
     category: 'accessories',
     image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
