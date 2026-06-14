@@ -169,12 +169,20 @@ const hasOrder = customerMessage.toLowerCase().includes('order') ||
   customerMessage.toLowerCase().includes('ඕන')
 
 // save to Supabase
-await supabase.from('conversations').insert({
-  customer_phone: customerPhone,
-  customer_message: customerMessage,
-  bot_reply: botReply,
-  has_order: hasOrder
-})
+const { data, error } = await supabase
+  .from('conversations')
+  .insert({
+    customer_phone: customerPhone,
+    customer_message: customerMessage,
+    bot_reply: botReply,
+    has_order: hasOrder
+  })
+
+if (error) {
+  console.error('Supabase error:', error)
+} else {
+  console.log('Saved to Supabase:', data)
+}
 
 res.sendStatus(200)
 
