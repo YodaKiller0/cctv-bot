@@ -53,9 +53,45 @@ const products = [
     images: null
   },
   {
+    name: '1TB Seagate/WD Hard disk',
+    price: 'Rs.13500',
+    description: '1TB Seagate/WD Hard disk (1 year)',
+    images: null
+  },
+  {
+    name: '2TB Seagate/WD Hard disk',
+    price: 'Rs.21500',
+    description: '2TB Seagate/WD Hard disk (1 year)',
+    images: null
+  },
+  {
     name: '2TB Seagate/WD Hard disk',
     price: 'Rs.25500',
     description: '2TB Seagate/WD Hard disk (2 year)',
+    images: null
+  },
+  {
+    name: '4TB Seagate/WD Hard disk',
+    price: 'Rs.39900',
+    description: '4TB Seagate/WD Hard disk (2 year)',
+    images: null
+  },
+  {
+    name: '6TB Seagate/WD Hard disk',
+    price: 'Rs.64500',
+    description: '6TB Seagate/WD Hard disk (2 year)',
+    images: null
+  },
+  {
+    name: '8TB Seagate/WD Hard disk',
+    price: 'Rs.99000',
+    description: '8TB Seagate/WD Hard disk (2 year)',
+    images: null
+  },
+  {
+    name: '12TB Seagate/WD Hard disk',
+    price: 'Rs.160000',
+    description: '12TB Seagate/WD Hard disk (2 year)',
     images: null
   },
   {
