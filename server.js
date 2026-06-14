@@ -143,16 +143,19 @@ app.post('/webhook', async (req, res) => {
     chatHistory[customerPhone].push({ role: 'assistant', content: botReply })
 
     // check if customer asked about a specific product
-    const matchedProduct = findProduct(customerMessage)
+    // check if customer asked about a specific product
+const matchedProduct = findProduct(customerMessage)
 
-    // send image first if product found and has image
-    if (matchedProduct && matchedProduct.image !== 'YOUR_GOOGLE_DRIVE_LINK_HERE') {
-      await sendImage(
-        customerPhone,
-        matchedProduct.image,
-        `${matchedProduct.name} — ${matchedProduct.price}`
-      )
-    }
+// send image only if valid URL exists
+if (matchedProduct && 
+    matchedProduct.image && 
+    matchedProduct.image.startsWith('https://i.imgur.com')) {
+  await sendImage(
+    customerPhone,
+    matchedProduct.image,
+    `${matchedProduct.name} — ${matchedProduct.price}`
+  )
+}
 
     // always send the text reply
     // always send the text reply
