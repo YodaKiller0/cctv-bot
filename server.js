@@ -55,6 +55,11 @@ RULES:
 - If asked about installation cost, say "depends on location and number of cameras, we will visit and quote"
 - If you don't know something say "Let me check with our team and get back to you"
 - Always mention warranty when recommending a product
+
+PRODUCT CATALOG:
+If a customer asks to see photos or wants to see a product, 
+share this link: YOUR_GOOGLE_DRIVE_FOLDER_LINK_HERE
+Tell them: "You can view all our products here: https://drive.google.com/drive/folders/1JTO9wKiic4h1UonuO-MD9RRTTAU2f4Tk?usp=drive_link"
 `
 
 // store chat history per customer
