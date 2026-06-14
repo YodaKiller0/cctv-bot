@@ -91,12 +91,23 @@ const chatHistory = {}
 
 function findProduct(message) {
   const msg = message.toLowerCase()
-  return products.find(p => {
+  
+  let best = null
+  let bestScore = 0
+  
+  products.forEach(p => {
     const name = p.name.toLowerCase()
-    const words = name.split(' ').filter(w => w.length > 3)
+    const words = name.split(' ').filter(w => w.length > 2)
     const matchCount = words.filter(w => msg.includes(w)).length
-    return matchCount >= 2
+    const score = matchCount / words.length
+    
+    if (matchCount >= 1 && score > bestScore) {
+      bestScore = score
+      best = p
+    }
   })
+  
+  return best
 }
 
 async function sendText(to, text) {
