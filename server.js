@@ -70,6 +70,7 @@ RULES:
 - If asked about installation cost, say "depends on location and number of cameras, we will visit and quote"
 - If you don't know something say "Let me check with our team and get back to you"
 - Always mention warranty when recommending a product
+- If customers asks for hikvision analog cameras also tell them they need BNC Jacks,power supply,TT cables,3c2v cables,hard disk if they havent asked for them
 `
 
 // store chat history per customer

@@ -11,7 +11,51 @@ const products = [
   {
     name: 'Red link power supply',
     price: 'Rs.350',
-    description: '2A 5V power supply',
+    description: '2A 5V Red Link power supply',
+    images: null
+  },
+  {
+    name: 'BNC Jack Normal',
+    price: 'Rs.50',
+    description: 'Normal BNC Jack',
+    images: null
+  },
+  {
+    name: 'BNC Jack Metal',
+    price: 'Rs.150',
+    description: 'Metal BNC Jack',
+    images: null
+  },
+  {
+    name: 'Eaglei 3c2v Cable (100m)',
+    price: 'Rs.3200',
+    description: 'Eaglei 3c2v copper plated 100m',
+    images: null
+  },
+  {
+    name: 'Uniarch full copper 3c2v (100m)',
+    price: 'Rs.6500',
+    description: 'fulll copper 3c2v cable 100m',
+    images: null
+  },
+
+  //Hard disks
+  {
+    name: '500GB Seagate/WD Hard disk',
+    price: 'Rs.4500',
+    description: '500GB Seagate/WD Hard disk (1 year)',
+    images: null
+  },
+  {
+    name: '1TB Seagate/WD Hard disk',
+    price: 'Rs.15500',
+    description: '1TB Seagate/WD Hard disk (2 year)',
+    images: null
+  },
+  {
+    name: '2TB Seagate/WD Hard disk',
+    price: 'Rs.25500',
+    description: '2TB Seagate/WD Hard disk (2 year)',
     images: null
   },
   {
