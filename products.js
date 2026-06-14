@@ -224,7 +224,7 @@ const products = [
     price: 'Rs. 5,400',
     description: '3MP WiFi PT camera, 355° pan, night vision 10m, micro SD slot, two-way audio, indoor',
     category: 'imou',
-    image: 'YOUR_GOOGLE_DRIVE_LINK_HERE'
+    image: 'https://drive.google.com/file/d/1PoNl208k10nHez6wDLJfBfs_hwveTThw/view?usp=drive_link'
   },
   {
     name: 'IMOU Ranger 2 Pro 3MP WiFi PT Camera',
