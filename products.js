@@ -657,6 +657,52 @@ const products = [
     image: null
   },
 
+  // ========== ASPOR POWER BANKS ==========
+
+
+  {
+    name: 'Aspor A352 Mini Power Bank 5000mAh',
+    price: 'Rs. 1,845',
+    description: '5000mAh mini power bank, 22.5W fast charging, built-in Type-C connector, digital battery display, ultra compact, 1 year warranty',
+    category: 'powerbank',
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781543544/WhatsApp_Image_2026-06-15_at_22.33.24_myp1mi.jpg'
+  },
+  {
+    name: 'Aspor A323 Power Bank 10000mAh',
+    price: 'Rs. 1,699.99',
+    description: '10000mAh power bank, dual USB output, dual input charging, polymer battery, 1 year warranty',
+    category: 'powerbank',
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781543550/WhatsApp_Image_2026-06-15_at_vbcd22.35.33_ozpblx.jpg'
+  },
+  {
+    name: 'Aspor A330 Power Bank 10000mAh',
+    price: 'Rs. 1,455.48',
+    description: '10000mAh power bank, LED digital battery display, Type-C and micro input, charge 2 devices at once, 1 year warranty',
+    category: 'powerbank',
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781543538/WhatsApp_Image_2026-06-15_jok_22.35.33_w2a93f.jpg'
+  },
+  {
+    name: 'Aspor A300 Power Bank 10000mAh',
+    price: 'Rs. 1,950',
+    description: '10000mAh power bank, 22.5W ultra fast charging, 4-in-1 built-in cables, digital LED display, multi-layer protection, 1 year warranty',
+    category: 'powerbank',
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781543564/WhatsApp_Image_2026-06-15_awqcat_22.33.25_eesbms.jpg'
+  },
+  {
+    name: 'Aspor A316 Power Bank 20000mAh',
+    price: 'Rs. 3,850',
+    description: '20000mAh power bank, 22.5W fast charging, 2-way multi-device charging, flight friendly, overcharging protection, 1 year warranty',
+    category: 'powerbank',
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781543564/WhatsApp_Image_2026dsd-06-15_at_22.33.24_q8et0g.jpg'
+  },
+  {
+    name: 'Aspor A385 MagSafe Power Bank 10000mAh',
+    price: 'Rs. 3,700',
+    description: '10000mAh MagSafe wireless power bank, 15W wireless fast charging, LCD display, magnetic grip, Type-C input/output, 1 year warranty',
+    category: 'powerbank',
+    image: 'https://res.cloudinary.com/dbsxybroo/image/upload/v1781543545/WhatsApp_Image_202612-06-15_at_22.33.25_wiqafl.jpg'
+  },
+
 ]
 
 module.exports = products

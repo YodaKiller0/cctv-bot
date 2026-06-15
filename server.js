@@ -239,31 +239,45 @@ app.post('/webhook', async (req, res) => {
         `Items: ${items}\n\n` +
         `Our team will contact you shortly to confirm delivery. Thank you! 🙏`
       )
+} else {
+      // check if customer is asking about power banks category
+      const asksPowerBank = customerMessage.toLowerCase().includes('power bank') ||
+        customerMessage.toLowerCase().includes('powerbank') ||
+        customerMessage.toLowerCase().includes('power banks')
 
-    } else {
-      const matchedProduct = findProduct(customerMessage)
-      console.log('Customer message:', customerMessage)
-      console.log('Matched product:', matchedProduct ? matchedProduct.name : 'NONE')
-      console.log('Image URL:', matchedProduct ? matchedProduct.image : 'NONE')
-      
-      if (matchedProduct && matchedProduct.image && matchedProduct.image.startsWith('https://')) {
-        console.log('Sending image...')
-        try {
-          await sendImage(
-            customerPhone,
-            matchedProduct.image,
-            `${matchedProduct.name} — ${matchedProduct.price}`
-          )
-          console.log('Image sent successfully')
-        } catch (imgError) {
-          console.error('Image send error:', imgError.response ? imgError.response.data : imgError.message)
+      if (asksPowerBank) {
+        // send all power bank images that have URLs
+        const powerBanks = products.filter(p => p.category === 'powerbank' && p.image && p.image.startsWith('https://'))
+        for (const pb of powerBanks) {
+          try {
+            await sendImage(customerPhone, pb.image, `${pb.name} — ${pb.price}`)
+            await new Promise(r => setTimeout(r, 500))
+          } catch (imgError) {
+            console.error('Power bank image error:', imgError.response ? imgError.response.data : imgError.message)
+          }
         }
       } else {
-        console.log('No image to send — either no match or no image URL')
+        // single product image match
+        const matchedProduct = findProduct(customerMessage)
+        console.log('Matched product:', matchedProduct ? matchedProduct.name : 'NONE')
+
+        if (matchedProduct && matchedProduct.image && matchedProduct.image.startsWith('https://')) {
+          try {
+            await sendImage(
+              customerPhone,
+              matchedProduct.image,
+              `${matchedProduct.name} — ${matchedProduct.price}`
+            )
+            console.log('Image sent successfully')
+          } catch (imgError) {
+            console.error('Image send error:', imgError.response ? imgError.response.data : imgError.message)
+          }
+        }
       }
 
       await sendText(customerPhone, botReply)
     }
+    
 
     const { error: convError } = await supabase.from('conversations').insert({
       customer_phone: customerPhone,
